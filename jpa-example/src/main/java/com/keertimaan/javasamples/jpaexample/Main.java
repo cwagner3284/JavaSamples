@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
-package info.sayem.javasamples.jpaexample;
+package com.keertimaan.javasamples.jpaexample;
+
+import com.keertimaan.javasamples.jpaexample.entity.Address;
+
+import javax.persistence.EntityManager;
+
+import com.keertimaan.javasamples.jpaexample.persistenceutil.PersistenceManager;
 
 /**
  * @author Sayem Ahmed
@@ -24,7 +30,20 @@ public class Main {
    * @param args
    */
   public static void main(String[] args) {
-    // TODO Auto-generated method stub
+    Address address = new Address();
+    address.setCity("Dhaka")
+        .setCountry("Bangladesh")
+        .setPostcode("1000")
+        .setStreet("Poribagh");
 
+    EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
+    em.getTransaction()
+        .begin();
+    em.persist(address);
+    em.getTransaction()
+        .commit();
+
+    em.close();
+    PersistenceManager.INSTANCE.close();
   }
 }
