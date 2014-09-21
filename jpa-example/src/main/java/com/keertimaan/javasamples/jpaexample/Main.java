@@ -30,20 +30,31 @@ public class Main {
    * @param args
    */
   public static void main(String[] args) {
-    Address address = new Address();
-    address.setCity("Dhaka")
+    EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
+
+    Address address = new Address().setCity("Dhaka")
         .setCountry("Bangladesh")
         .setPostcode("1000")
         .setStreet("Poribagh");
-
-    EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
     em.getTransaction()
         .begin();
     em.persist(address);
     em.getTransaction()
         .commit();
+    System.out.println("addess is saved! It has id: " + address.getId());
 
+    Address anotherAddress = new Address().setCity("Shinagawa-ku, Tokyo")
+        .setCountry("Japan")
+        .setPostcode("140-0002")
+        .setStreet("Shinagawa Seaside Area");
+    em.getTransaction()
+        .begin();
+    em.persist(anotherAddress);
+    em.getTransaction()
+        .commit();
     em.close();
+    System.out.println("anotherAddress is saved! It has id: " + anotherAddress.getId());
+
     PersistenceManager.INSTANCE.close();
   }
 }

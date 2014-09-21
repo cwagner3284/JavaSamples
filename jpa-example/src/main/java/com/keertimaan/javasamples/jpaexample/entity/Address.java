@@ -18,13 +18,11 @@ package com.keertimaan.javasamples.jpaexample.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @author Sayem Ahmed
  */
 @Entity
-@Table(name = "address")
 public class Address {
   @Id
   @GeneratedValue
