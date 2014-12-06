@@ -43,6 +43,20 @@ public class Main {
     em.getTransaction()
         .commit();
 
+    Address anotherAddress = new Address().setCity("Shinagawa-ku, Tokyo")
+        .setCountry("Japan")
+        .setPostcode("140-0002")
+        .setStreet("Shinagawa Seaside Area");
+    
+    em.getTransaction()
+        .begin();
+    Address findAddress = em.find(Address.class, address.getId());
+    System.out.println("Post code is: " + findAddress.getPostcode());
+    
+    em.persist(anotherAddress);
+    em.getTransaction()
+        .commit();
+
     em.close();
     PersistenceManager.INSTANCE.close();
   }
