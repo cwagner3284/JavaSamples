@@ -15,15 +15,12 @@
 
 package com.keertimaan.javasamples.jpaexample.entity;
 
-import javax.persistence.Access;
-import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 /**
  * @author Sayem Ahmed
@@ -40,12 +37,7 @@ public class Address {
   private String city;
   private String province;
   private String country;
-  
-  @Transient
   private String postcode;
-  
-  @Transient
-  private String transientColumn;
 
   public Integer getId() {
     return id;
@@ -92,7 +84,6 @@ public class Address {
     return this;
   }
 
-  @Access(AccessType.PROPERTY)
   public String getPostcode() {
     return postcode;
   }
