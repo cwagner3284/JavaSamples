@@ -1,0 +1,7 @@
+﻿CREATE SEQUENCE 
+	address_id_seq
+INCREMENT BY
+	50
+CACHE
+	50
+;
