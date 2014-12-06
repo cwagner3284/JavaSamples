@@ -30,33 +30,23 @@ public class Main {
    * @param args
    */
   public static void main(String[] args) {
-    Address address = new Address();
-    address.setCity("Dhaka")
-        .setCountry("Bangladesh")
-        .setPostcode("1000")
-        .setStreet("Poribagh");
-
     EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
     em.getTransaction()
         .begin();
-    em.persist(address);
+    
+    for (int i = 0; i < 200; i++) {
+      int index = i + 1;
+      Address address = new Address().setCity("Dhaka " + index)
+          .setCountry("Bangladesh " + index)
+          .setPostcode("1000 " + index)
+          .setStreet("Poribagh " + index);
+        
+      em.persist(address);
+      System.out.println("Newly inserted entity's id is: " + address.getId());
+    }
+
     em.getTransaction()
         .commit();
-
-    Address anotherAddress = new Address().setCity("Shinagawa-ku, Tokyo")
-        .setCountry("Japan")
-        .setPostcode("140-0002")
-        .setStreet("Shinagawa Seaside Area");
-    
-    em.getTransaction()
-        .begin();
-    Address findAddress = em.find(Address.class, address.getId());
-    System.out.println("Post code is: " + findAddress.getPostcode());
-    
-    em.persist(anotherAddress);
-    em.getTransaction()
-        .commit();
-
     em.close();
     PersistenceManager.INSTANCE.close();
   }
