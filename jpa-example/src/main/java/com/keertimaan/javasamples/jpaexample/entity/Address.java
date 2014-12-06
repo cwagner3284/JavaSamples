@@ -31,19 +31,19 @@ public class Address {
   @Id
   @SequenceGenerator(name = "address_id_seq", sequenceName = "address_id_seq", allocationSize = 1)
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_id_seq")
-  private Integer id;
+  private Long id;
 
   private String street;
   private String city;
-  private String province;
+  private String state;
   private String country;
   private String postcode;
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public Address setId(Integer id) {
+  public Address setId(Long id) {
     this.id = id;
     return this;
   }
@@ -66,13 +66,12 @@ public class Address {
     return this;
   }
 
-  public String getProvince() {
-    return province;
+  public String getState() {
+    return state;
   }
 
-  public Address setProvince(String province) {
-    this.province = province;
-    return this;
+  public void setState(String state) {
+    this.state = state;
   }
 
   public String getCountry() {
