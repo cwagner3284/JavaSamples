@@ -22,12 +22,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import java.math.BigDecimal;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 
 /**
@@ -38,7 +41,7 @@ import java.util.Date;
 public class Employee {
   @Id
   @SequenceGenerator(name = "employee_id_seq", sequenceName = "employee_id_seq", 
-      allocationSize = 50)
+      allocationSize = 1)
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_id_seq")
   private Long id;
 
@@ -65,6 +68,9 @@ public class Employee {
   @ManyToOne
   @JoinColumn(name = "address_id")
   private Address address;
+  
+  @OneToMany(mappedBy = "owner")
+  private Collection<Phone> phones;
 
   public Long getId() {
     return id;
@@ -136,5 +142,24 @@ public class Employee {
   public Employee setAddress(Address address) {
     this.address = address;
     return this;
+  }
+  
+  public Employee addPhone(Phone phone) {
+    phone.setOwner(this);
+    phones.add(phone);
+
+    return this;
+  }
+  
+  public Employee addAllPhones(Collection<? extends Phone> phones) {
+    for (Phone phone: phones) {
+      addPhone(phone);
+    }
+
+    return this;
+  }
+  
+  public Collection<Phone> getPhones() {
+    return Collections.unmodifiableCollection(phones);
   }
 }
