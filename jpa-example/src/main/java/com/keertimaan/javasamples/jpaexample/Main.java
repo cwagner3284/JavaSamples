@@ -34,7 +34,7 @@ public class Main {
     em.getTransaction()
         .begin();
     
-    for (int i = 0; i < 200; i++) {
+    for (int i = 0; i < 10; i++) {
       int index = i + 1;
       Address address = new Address().setCity("Dhaka " + index)
           .setCountry("Bangladesh " + index)
@@ -47,6 +47,26 @@ public class Main {
 
     em.getTransaction()
         .commit();
+    em.close();
+
+    em = PersistenceManager.INSTANCE.getEntityManager();
+    em.getTransaction()
+        .begin();
+    
+    for (int j = 47; j < 200; j++) {
+      int index = j + 1;
+      Address address = new Address().setCity("Dhaka " + index)
+          .setCountry("Bangladesh " + index)
+          .setPostcode("1000 " + index)
+          .setStreet("Poribagh " + index);
+        
+      em.persist(address);
+      System.out.println("Newly inserted entity's id is: " + address.getId());
+    }
+    
+    em.getTransaction()
+        .commit();
+    
     em.close();
     PersistenceManager.INSTANCE.close();
   }
