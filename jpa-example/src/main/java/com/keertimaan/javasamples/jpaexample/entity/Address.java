@@ -29,7 +29,7 @@ import javax.persistence.Table;
 @Table(name = "address")
 public class Address {
   @Id
-  @SequenceGenerator(name = "address_id_seq", sequenceName = "address_id_seq", allocationSize = 50)
+  @SequenceGenerator(name = "address_id_seq", sequenceName = "address_id_seq", allocationSize = 1)
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_id_seq")
   private Long id;
 
