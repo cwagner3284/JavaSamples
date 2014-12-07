@@ -1,7 +1,11 @@
-﻿CREATE SEQUENCE 
+﻿DROP SEQUENCE
+	project_id_seq
+;
+
+CREATE SEQUENCE 
 	project_id_seq
 INCREMENT BY
-	50
+	1
 CACHE
 	50
 ;
