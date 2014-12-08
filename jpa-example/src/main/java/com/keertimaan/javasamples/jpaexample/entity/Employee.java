@@ -21,6 +21,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
@@ -71,6 +72,9 @@ public class Employee {
   
   @OneToMany(mappedBy = "owner")
   private Collection<Phone> phones;
+  
+  @ManyToMany(mappedBy = "employees")
+  private Collection<Project> projects;
 
   public Long getId() {
     return id;
