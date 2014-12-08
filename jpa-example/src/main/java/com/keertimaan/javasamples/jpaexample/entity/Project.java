@@ -64,59 +64,67 @@ public class Project {
     return id;
   }
 
-  public void setId(Long id) {
+  public Project setId(Long id) {
     this.id = id;
+    return this;
   }
 
   public ProjectType getType() {
     return type;
   }
 
-  public void setType(ProjectType type) {
+  public Project setType(ProjectType type) {
     this.type = type;
+    return this;
   }
 
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public Project setName(String name) {
     this.name = name;
+    return this;
   }
 
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(String description) {
+  public Project setDescription(String description) {
     this.description = description;
+    return this;
   }
 
   public BigDecimal getBudget() {
     return budget;
   }
 
-  public void setBudget(BigDecimal budget) {
+  public Project setBudget(BigDecimal budget) {
     this.budget = budget;
+    return this;
   }
 
   public Employee getLeader() {
     return leader;
   }
 
-  public void setLeader(Employee leader) {
+  public Project setLeader(Employee leader) {
     this.leader = leader;
+    return this;
   }
 
   public Collection<Employee> getEmployees() {
     return Collections.unmodifiableCollection(employees);
   }
   
-  public void addEmployee(Employee employee) {
-    
+  public Project addEmployee(Employee employee) {
+    employees.add(employee);
+    return this;
   }
 
-  public void setEmployees(Collection<? extends Employee> employees) {
+  public Project addAllEmployees(Collection<? extends Employee> employees) {
     this.employees.addAll(employees);
+    return this;
   }
 }

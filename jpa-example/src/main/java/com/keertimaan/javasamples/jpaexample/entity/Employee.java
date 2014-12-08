@@ -166,4 +166,18 @@ public class Employee {
   public Collection<Phone> getPhones() {
     return Collections.unmodifiableCollection(phones);
   }
+  
+  public Employee addProject(Project project) {
+    projects.add(project);
+    return this;
+  }
+  
+  public Employee addAllProjects(Collection<? extends Project> projects) {
+    this.projects.addAll(projects);
+    return this;
+  }
+  
+  public Collection<Project> getProjects() {
+    return Collections.unmodifiableCollection(projects);
+  }
 }
