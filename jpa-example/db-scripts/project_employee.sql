@@ -1,5 +1,9 @@
-﻿CREATE 
-TABLE	projectEmployee
+﻿DROP TABLE
+	project_employee
+;
+
+CREATE 
+TABLE	project_employee
 	(
 		project_id bigint NOT NULL,
 		employee_id bigint NOT NULL,
