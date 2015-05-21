@@ -7,3 +7,6 @@ Servers/
 .project
 
 target/
+
+.idea
+*.iml

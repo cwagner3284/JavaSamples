@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.keertimaan</groupId>
+  <artifactId>JavaSamples</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Java Samples!</name>
+  <url>http://sayemdb.wordpress.com</url>
+
+  <properties>
+    <java.version>1.8</java.version>
+    <hibernate.version>4.3.6.Final</hibernate.version>
+    <postgresql.jdbc.version>9.3-1100-jdbc41</postgresql.jdbc.version>
+    <junit.version>4.11</junit.version>
+    <hamcrest.version>1.3</hamcrest.version>
+    <maven.compiler.version>2.5.1</maven.compiler.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <modules>
+    <module>jpa-example</module>
+  </modules>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.version}</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <compilerArgument>-Xlint:all</compilerArgument>
+          <showWarnings>true</showWarnings>
+          <showDeprecation>true</showDeprecation>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
