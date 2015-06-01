@@ -10,6 +10,13 @@
 
   <artifactId>jpa-example</artifactId>
   <packaging>jar</packaging>
+  
+  <properties>
+    <hibernate.version>4.3.6.Final</hibernate.version>
+    <postgresql.jdbc.version>9.3-1100-jdbc41</postgresql.jdbc.version>
+    <junit.version>4.11</junit.version>
+    <hamcrest.version>1.3</hamcrest.version>
+  </properties>
 
   <dependencies>
     <!-- JPA -->
