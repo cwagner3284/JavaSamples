@@ -20,6 +20,7 @@
   <modules>
     <module>jpa-example</module>
     <module>excel-parser</module>
+    <module>access-reader</module>
   </modules>
 
   <build>
