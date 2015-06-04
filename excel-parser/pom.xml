@@ -2,6 +2,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <properties>
+    <poi.version>3.9</poi.version>
+    <log4j.version>2.0-beta7</log4j.version>
+  </properties>
+
   <parent>
     <groupId>com.keertimaan</groupId>
     <artifactId>JavaSamples</artifactId>
@@ -13,11 +18,6 @@
 
   <name>excel-parser</name>
   <url>http://sayemdb.wordpress.com</url>
-
-  <properties>
-    <poi.version>3.9</poi.version>
-    <log4j.version>2.0-beta7</log4j.version>
-  </properties>
 
   <dependencies>
     <!-- Apache POI -->
