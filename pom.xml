@@ -21,6 +21,7 @@
     <module>jpa-example</module>
     <module>excel-parser</module>
     <module>access-reader</module>
+    <module>core-experiments</module>
   </modules>
 
   <build>
