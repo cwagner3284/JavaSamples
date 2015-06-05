@@ -22,11 +22,14 @@ public class Main {
     in.firstName = "Hoge";
     in.lastName = "Fuga";
     String targetFileName = "simple_serializable.ser";
-    ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(targetFileName));
-    outStream.writeObject(in);
+    try (ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(targetFileName))) {
+      outStream.writeObject(in);
+    }
 
-    ObjectInputStream inStream = new ObjectInputStream(new FileInputStream(targetFileName));
-    SimpleSerializable out = (SimpleSerializable) inStream.readObject();
+    SimpleSerializable out;
+    try (ObjectInputStream inStream = new ObjectInputStream(new FileInputStream(targetFileName))) {
+      out = (SimpleSerializable) inStream.readObject();
+    }
 
     // Case 1: Default value for primitives
     System.out.println("Default value for boolean: " + out.boolPrim);
@@ -36,7 +39,7 @@ public class Main {
     System.out.println("Default value for int: " + out.intPrim);
     System.out.println("Default value for long: " + out.longPrim);
     System.out.println("Default value for float: " + out.floatPrim);
-    System.out.println("Default value for doubles: " + out.doublePrim);
+    System.out.println("Default value for double: " + out.doublePrim);
 
     // Case 2: Default value for String
     System.out.println("Default value for string: " + out.strPrim);
